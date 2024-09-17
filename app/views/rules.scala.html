@@ -1,38 +1,60 @@
 @()
 
 @main("Roulette Regeln") {
-    <header>
-        <h1 class="shadow-text">Die Regeln des Roulette</h1>
-    </header>
-    <main>
-        <section class="gold-border">
-            <h2>Grundlagen</h2>
-            <p>Roulette ist ein klassisches Casinospiel, bei dem eine kleine Kugel in ein sich drehendes Rad geworfen wird. Spieler setzen darauf, wo die Kugel landen wird.</p>
-        </section>
-        <section class="gold-border">
-            <h2>Das Roulette-Rad</h2>
-            <p>Das europäische Roulette-Rad hat 37 Zahlen von 0 bis 36. Die amerikanische Variante hat zusätzlich eine doppelte Null (00).</p>
-        </section>
-        <section class="gold-border">
-            <h2>Wettmöglichkeiten</h2>
-            <ul>
-                <li>Einzelne Zahlen (Straight Up): Setzen Sie auf eine einzelne Zahl.</li>
-                <li>Rot oder Schwarz: Setzen Sie auf die Farbe, in der die Kugel landen wird.</li>
-                <li>Gerade oder Ungerade: Setzen Sie darauf, ob die Zahl gerade oder ungerade sein wird.</li>
-                <li>Hoch oder Niedrig: Setzen Sie auf die Zahlen 1-18 (niedrig) oder 19-36 (hoch).</li>
-            </ul>
-        </section>
-        <section class="gold-border">
-            <h2>Spielablauf</h2>
-            <ol>
-                <li>Spieler platzieren ihre Einsätze auf dem Tisch.</li>
-                <li>Der Croupier wirft die Kugel in das sich drehende Rad.</li>
-                <li>Wenn die Kugel zur Ruhe kommt, wird die Gewinnzahl und -farbe bekannt gegeben.</li>
-                <li>Gewinnende Einsätze werden ausbezahlt, verlorene Einsätze werden eingezogen.</li>
-            </ol>
-        </section>
-    </main>
-    <footer>
-        <p class="shadow-text">Viel Glück und spielen Sie verantwortungsvoll!</p>
-    </footer>
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-4 shadow-text glow">Die Regeln des Roulette</h1>
+        </header>
+        <main>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <section class="card gold-border h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Grundlagen</h2>
+                            <p class="card-text">Roulette ist ein klassisches Casinospiel, bei dem eine kleine Kugel in ein sich drehendes Rad geworfen wird. Spieler setzen darauf, wo die Kugel landen wird.</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-6">
+                    <section class="card gold-border h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Das Roulette-Rad</h2>
+                            <p class="card-text">Das europäische Roulette-Rad hat 37 Zahlen von 0 bis 36. Die amerikanische Variante hat zusätzlich eine doppelte Null (00).</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-md-6">
+                    <section class="card gold-border h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Wettmöglichkeiten</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">Einzelne Zahlen (Straight Up): Setzen Sie auf eine einzelne Zahl.</li>
+                                <li class="list-group-item bg-transparent">Rot oder Schwarz: Setzen Sie auf die Farbe, in der die Kugel landen wird.</li>
+                                <li class="list-group-item bg-transparent">Gerade oder Ungerade: Setzen Sie darauf, ob die Zahl gerade oder ungerade sein wird.</li>
+                                <li class="list-group-item bg-transparent">Hoch oder Niedrig: Setzen Sie auf die Zahlen 1-18 (niedrig) oder 19-36 (hoch).</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-6">
+                    <section class="card gold-border h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Spielablauf</h2>
+                            <ol class="list-group list-group-flush list-group-numbered">
+                                <li class="list-group-item bg-transparent">Spieler platzieren ihre Einsätze auf dem Tisch.</li>
+                                <li class="list-group-item bg-transparent">Der Croupier wirft die Kugel in das sich drehende Rad.</li>
+                                <li class="list-group-item bg-transparent">Wenn die Kugel zur Ruhe kommt, wird die Gewinnzahl und -farbe bekannt gegeben.</li>
+                                <li class="list-group-item bg-transparent">Gewinnende Einsätze werden ausbezahlt, verlorene Einsätze werden eingezogen.</li>
+                            </ol>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer class="text-center mt-5">
+            <p class="shadow-text glow">Viel Glück und spielen Sie verantwortungsvoll!</p>
+        </footer>
+    </div>
 }

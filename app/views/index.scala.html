@@ -1,87 +1,54 @@
-@()
+@()(implicit request: RequestHeader)
 
-@main("Roulette Spiel") {
-    <header>
-        <h1 class="shadow-text">Willkommen zum Roulette</h1>
-    </header>
-    <main>
-        <section id="spielstatus" class="gold-border glow">
-            <h2>Spielstatus</h2>
-            <p id="statusText" class="shadow-text">Willkommen zum Roulette!</p>
-        </section>
+@main("Roulette") {
+    <div class="container py-5">
+        <header class="text-center mb-5">
+            <h1 class="display-4 shadow-text glow">Roulette</h1>
+        </header>
         
-        <section id="ergebnis" class="gold-border">
-            <h2>Ergebnis</h2>
-            <p id="ergebnisText" class="shadow-text">Wettergebnis</p>
-        </section>
-        
-        <section id="kontostand" class="gold-border">
-            <h2>Kontostand</h2>
-            <p id="spieler1Geld">Spieler 1: 0€</p>
-            <p id="spieler2Geld">Spieler 2: 0€</p>
-        </section>
-        
-        <section id="spielerauswahl">
-            <h2>Spieler auswählen</h2>
-            <button id="spieler1Button" class="pulse">Spieler 1</button>
-            <button id="spieler2Button" class="pulse">Spieler 2</button>
-        </section>
-        
-        <section id="wetteinsatz">
-            <h2>Wetteinsatz</h2>
-            <input type="number" id="einsatzBetrag" value="0" min="0">
-        </section>
-        
-        <section id="wettoptionen">
-            <h2>Wettoptionen</h2>
-            <button id="zahlWette">Zahl</button>
-            <button id="geradeWette">Gerade</button>
-            <button id="ungeradeWette">Ungerade</button>
-            <button id="schwarzWette">Schwarz</button>
-            <button id="rotWette">Rot</button>
-        </section>
-        
-        <section id="zahlenwette">
-            <h2>Zahlenwette</h2>
-            <input type="number" id="wettZahl" value="0" min="0" max="36">
-        </section>
-        
-        <section id="aktionen">
-            <button id="wettePlatzieren" class="pulse">Wette platzieren</button>
-            <button id="wettphaseBeenden">Wettphase beenden</button>
-        </section>
-        
-        <section id="spielstandVerwaltung" class="gold-border">
-            <h2>Spielstand verwalten</h2>
-            <button id="speichernDB">In Datenbank speichern</button>
-            <button id="ladenDB">Aus Datenbank laden</button>
-            <button id="speichernDatei">In Datei speichern</button>
-            <button id="ladenDatei">Aus Datei laden</button>
-        </section>
-        
-        <section id="spielzuege">
-            <h2>Spielzüge</h2>
-            <button id="rueckgaengig">Rückgängig</button>
-            <button id="wiederholen">Wiederholen</button>
-        </section>
-    </main>
-    <footer>
-        <p class="shadow-text">Viel Glück und spielen Sie verantwortungsvoll!</p>
-    </footer>
-    
-    <script>
-        document.getElementById('wettePlatzieren').addEventListener('click', function() {
-            var spieler = document.getElementById('spieler1Button').classList.contains('active') ? 'Spieler 1' : 'Spieler 2';
-            var einsatz = document.getElementById('einsatzBetrag').value;
-            var wetttyp = document.querySelector('#wettoptionen button.active').textContent;
-            var wettzahl = document.getElementById('wettZahl').value;
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card shadow mb-4 gold-border">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active text-white" id="game-tab" data-bs-toggle="tab" data-bs-target="#game" type="button" role="tab" aria-selected="true">Spiel</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a href="@routes.HomeController.rules()" class="nav-link text-white">Regeln</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="gameTabContent">
+                            <div class="tab-pane fade show active" id="game" role="tabpanel">
+                                <div id="rouletteWheel" class="mb-4"></div>
+                                
+                                <div id="spielstatus" class="alert alert-info shadow-sm">
+                                    <h5 class="alert-heading">Spielstatus</h5>
+                                    <p id="statusText" class="mb-0">Willkommen zu Roulette!</p>
+                                </div>
+                                
+                                <div id="ergebnis" class="alert alert-success mb-4 shadow-sm d-none">
+                                    <h5 class="alert-heading">Ergebnis</h5>
+                                    <p id="ergebnisText" class="mb-0"></p>
+                                </div>
+                                
+                                @game_form()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            var ausgabe = spieler + ' setzt ' + einsatz + '€ auf ' + wetttyp;
-            if (wetttyp === 'Zahl') {
-                ausgabe += ' ' + wettzahl;
-            }
-            
-            document.getElementById('statusText').textContent = ausgabe;
-        });
-    </script>
+            <div class="col-lg-4">
+                @player_info()
+                @game_management()
+            </div>
+        </div>
+        
+        <footer class="text-center mt-5">
+            <p class="shadow-text glow">Viel Glück und spielen Sie verantwortungsvoll!</p>
+        </footer>
+    </div>
 }

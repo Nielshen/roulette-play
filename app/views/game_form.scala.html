@@ -1,0 +1,47 @@
+@()
+
+<form id="wettform">
+    <div class="mb-3">
+        <label class="form-label fw-bold">Spieler auswählen</label>
+        <div class="btn-group w-100" role="group" aria-label="Spielerauswahl">
+            <input type="radio" class="btn-check" name="spieler" id="spieler1Button" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="spieler1Button">Spieler 1</label>
+            <input type="radio" class="btn-check" name="spieler" id="spieler2Button" autocomplete="off">
+            <label class="btn btn-outline-primary" for="spieler2Button">Spieler 2</label>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="einsatzBetrag" class="form-label fw-bold">Wetteinsatz</label>
+        <div class="input-group">
+            <span class="input-group-text">€</span>
+            <input type="number" class="form-control" id="einsatzBetrag" value="10" min="1" max="1000">
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label fw-bold">Wettoptionen</label>
+        <div class="btn-group d-flex flex-wrap gap-2" role="group" aria-label="Wettoptionen">
+            <input type="radio" class="btn-check" name="wetttyp" id="zahlWette" autocomplete="off">
+            <label class="btn btn-outline-primary" for="zahlWette">Zahl</label>
+            <input type="radio" class="btn-check" name="wetttyp" id="geradeWette" autocomplete="off">
+            <label class="btn btn-outline-primary" for="geradeWette">Gerade</label>
+            <input type="radio" class="btn-check" name="wetttyp" id="ungeradeWette" autocomplete="off">
+            <label class="btn btn-outline-primary" for="ungeradeWette">Ungerade</label>
+            <input type="radio" class="btn-check" name="wetttyp" id="schwarzWette" autocomplete="off">
+            <label class="btn btn-outline-primary" for="schwarzWette">Schwarz</label>
+            <input type="radio" class="btn-check" name="wetttyp" id="rotWette" autocomplete="off">
+            <label class="btn btn-outline-primary" for="rotWette">Rot</label>
+        </div>
+    </div>
+    
+    <div class="mb-3" id="zahlenwette">
+        <label for="wettZahl" class="form-label fw-bold">Zahlenwette</label>
+        <input type="number" class="form-control" id="wettZahl" value="0" min="0" max="36">
+    </div>
+    
+    <div class="mb-3 d-grid gap-2">
+        <button type="button" id="wettePlatzieren" class="btn btn-primary btn-lg">Wette platzieren</button>
+        <button type="button" id="spinRouletteBtn" class="btn btn-secondary btn-lg">Roulette drehen</button>
+    </div>
+</form>

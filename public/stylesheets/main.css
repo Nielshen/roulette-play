@@ -1,186 +1,282 @@
-/* Grundlegende Stile und Variablen */
 :root {
-    --primary-color: #1a1a1a;
-    --secondary-color: #c9a45c;
+    --primary-color: #0a0a0a;
+    --secondary-color: #d4af37;
     --text-color: #ffffff;
-    --accent-color: #e60000;
-    --bg-gradient: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --button-gradient: linear-gradient(to right, #c9a45c, #e6d086);
-  }
-  
-  body {
+    --accent-color: #cc0000;
+    --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    --card-bg: rgba(26, 26, 26, 0.9);
+    --button-gradient: linear-gradient(to right, #d4af37, #ffd700);
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-border: #d4af37;
+}
+
+body {
     font-family: 'Playfair Display', serif;
     background: var(--bg-gradient);
     color: var(--text-color);
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Header Stile */
-  header {
+}
+
+.container-fluid {
+    max-width: 1400px;
+}
+
+header {
     background-color: var(--primary-color);
-    padding: 20px 0;
-    text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  h1 {
-    font-size: 3rem;
-    margin: 0;
-    color: var(--secondary-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Hauptcontainer */
-  main {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  
-  /* Abschnitte */
-  section {
+}
+
+.card {
     background: var(--card-bg);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 30px;
+    border: 1px solid var(--secondary-color);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-  }
-  
-  h2 {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 10px;
-    margin-top: 0;
-  }
-  
-  /* Buttons */
-  button {
+}
+
+.card-header {
+    background-color: rgba(212, 175, 55, 0.2);
+    border-bottom: 1px solid var(--secondary-color);
+    color: var(--text-color);
+}
+
+.btn {
+    color: var(--text-color);
+}
+
+.btn-primary {
     background: var(--button-gradient);
     border: none;
     color: var(--primary-color);
-    padding: 10px 20px;
-    font-size: 1rem;
     font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
     transition: all 0.3s ease;
-    margin: 5px;
-  }
-  
-  button:hover {
+}
+
+.btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(201, 164, 92, 0.3);
-  }
-  
-  button:active {
-    transform: translateY(0);
-  }
-  
-  /* Eingabefelder */
-  input[type="number"] {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+    color: var(--primary-color);
+}
+
+.btn-check:checked + .btn-outline-primary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-primary {
+    border-color: var(--secondary-color);
     color: var(--text-color);
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 200px;
-  }
-  
-  /* Spielstatus und Ergebnis */
-  #spielstatus, #ergebnis {
-    font-size: 1.2rem;
-    text-align: center;
-    background: rgba(201, 164, 92, 0.1);
-  }
-  
-  #statusText, #ergebnisText {
-    font-weight: bold;
-    color: var(--secondary-color);
-  }
-  
-  /* Kontostand */
-  #kontostand p {
-    font-size: 1.1rem;
-    margin: 10px 0;
-  }
-  
-  /* Wettoptionen */
-  #wettoptionen button {
-    background: var(--primary-color);
-    color: var(--secondary-color);
-    border: 1px solid var(--secondary-color);
-  }
-  
-  #wettoptionen button:hover {
-    background: var(--secondary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--secondary-color);
     color: var(--primary-color);
-  }
-  
-  #wettoptionen button.active {
+}
+
+.form-control {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+    color: var(--text-color);
+}
+
+.form-label {
+    color: var(--text-color);
+}
+
+#rouletteWheel {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #e60000 0deg 10deg,
+        #1a1a1a 10deg 20deg,
+        #e60000 20deg 30deg,
+        #1a1a1a 30deg 40deg,
+        #e60000 40deg 50deg,
+        #1a1a1a 50deg 60deg,
+        #e60000 60deg 70deg,
+        #1a1a1a 70deg 80deg,
+        #e60000 80deg 90deg,
+        #1a1a1a 90deg 100deg,
+        #e60000 100deg 110deg,
+        #1a1a1a 110deg 120deg,
+        #e60000 120deg 130deg,
+        #1a1a1a 130deg 140deg,
+        #e60000 140deg 150deg,
+        #1a1a1a 150deg 160deg,
+        #e60000 160deg 170deg,
+        #1a1a1a 170deg 180deg,
+        #e60000 180deg 190deg,
+        #1a1a1a 190deg 200deg,
+        #e60000 200deg 210deg,
+        #1a1a1a 210deg 220deg,
+        #e60000 220deg 230deg,
+        #1a1a1a 230deg 240deg,
+        #e60000 240deg 250deg,
+        #1a1a1a 250deg 260deg,
+        #e60000 260deg 270deg,
+        #1a1a1a 270deg 280deg,
+        #e60000 280deg 290deg,
+        #1a1a1a 290deg 300deg,
+        #e60000 300deg 310deg,
+        #1a1a1a 310deg 320deg,
+        #e60000 320deg 330deg,
+        #1a1a1a 330deg 340deg,
+        #e60000 340deg 350deg,
+        #1a1a1a 350deg 360deg
+    );
+    position: relative;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(201, 164, 92, 0.5);
+}
+
+#rouletteWheel::after {
+    content: '';
+    width: 20px;
+    height: 20px;
     background: var(--secondary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spin-animation {
+    animation: spin 5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-color);
+}
+
+.nav-tabs .nav-link.active {
+    background-color: var(--secondary-color);
     color: var(--primary-color);
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 20px;
+    border-color: var(--secondary-color);
+}
+
+.alert {
+    background-color: rgba(26, 26, 26, 0.8);
+    border-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.alert-heading {
+    color: var(--secondary-color);
+}
+
+footer {
     background-color: var(--primary-color);
+    border-top: 1px solid var(--secondary-color);
     color: var(--text-color);
-    font-style: italic;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
+}
+
+/* Specific adjustments for better readability */
+.btn-secondary {
+    background-color: #4a4a4a;
+    border-color: #4a4a4a;
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: #5a5a5a;
+    border-color: #5a5a5a;
+    color: var(--text-color);
+}
+
+.input-group-text {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Ensure all text is white unless specified otherwise */
+p, span, div, label {
+    color: var(--text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #rouletteWheel {
+        width: 200px;
+        height: 200px;
+    }
+
     h1 {
-      font-size: 2rem;
+        font-size: 2rem;
     }
-    
-    main {
-      padding: 0 10px;
+
+    .btn-group {
+        flex-direction: column;
     }
-    
-    button {
-      width: 100%;
-      margin: 5px 0;
+
+    .btn-group .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
     }
-  }
-  
-  /* Animationen */
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
-  .pulse {
-    animation: pulse 2s infinite;
-  }
-  
-  /* Zusätzliche Verschönerungen */
-  .gold-border {
+}
+
+.gold-border {
     border: 2px solid var(--secondary-color);
     border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  .shadow-text {
+    transition: all 0.3s ease;
+}
+
+.gold-border:hover {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.shadow-text {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  .glow {
-    box-shadow: 0 0 10px var(--secondary-color);
-  }
+}
+
+.glow {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--secondary-color), 0 0 20px var(--secondary-color);
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color);
+    }
+}
+
+.list-group-item {
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+}
+
+.card {
+    background: var(--card-bg);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
