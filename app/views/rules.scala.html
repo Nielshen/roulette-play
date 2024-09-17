@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roulette Regeln</title>
-</head>
-<body>
+@()
+
+@main("Roulette Regeln") {
     <header>
-        <h1>Die Regeln des Roulette</h1>
+        <h1 class="shadow-text">Die Regeln des Roulette</h1>
     </header>
     <main>
-        <section>
+        <section class="gold-border">
             <h2>Grundlagen</h2>
             <p>Roulette ist ein klassisches Casinospiel, bei dem eine kleine Kugel in ein sich drehendes Rad geworfen wird. Spieler setzen darauf, wo die Kugel landen wird.</p>
         </section>
-        <section>
+        <section class="gold-border">
             <h2>Das Roulette-Rad</h2>
             <p>Das europäische Roulette-Rad hat 37 Zahlen von 0 bis 36. Die amerikanische Variante hat zusätzlich eine doppelte Null (00).</p>
         </section>
-        <section>
+        <section class="gold-border">
             <h2>Wettmöglichkeiten</h2>
             <ul>
                 <li>Einzelne Zahlen (Straight Up): Setzen Sie auf eine einzelne Zahl.</li>
@@ -27,7 +22,7 @@
                 <li>Hoch oder Niedrig: Setzen Sie auf die Zahlen 1-18 (niedrig) oder 19-36 (hoch).</li>
             </ul>
         </section>
-        <section>
+        <section class="gold-border">
             <h2>Spielablauf</h2>
             <ol>
                 <li>Spieler platzieren ihre Einsätze auf dem Tisch.</li>
@@ -37,5 +32,7 @@
             </ol>
         </section>
     </main>
-</body>
-</html>
+    <footer>
+        <p class="shadow-text">Viel Glück und spielen Sie verantwortungsvoll!</p>
+    </footer>
+}

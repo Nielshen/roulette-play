@@ -1,5 +1,87 @@
 @()
 
-@main("Welcome to Play") {
-  <h1>Welcome to Play!</h1>
+@main("Roulette Spiel") {
+    <header>
+        <h1 class="shadow-text">Willkommen zum Roulette</h1>
+    </header>
+    <main>
+        <section id="spielstatus" class="gold-border glow">
+            <h2>Spielstatus</h2>
+            <p id="statusText" class="shadow-text">Willkommen zum Roulette!</p>
+        </section>
+        
+        <section id="ergebnis" class="gold-border">
+            <h2>Ergebnis</h2>
+            <p id="ergebnisText" class="shadow-text">Wettergebnis</p>
+        </section>
+        
+        <section id="kontostand" class="gold-border">
+            <h2>Kontostand</h2>
+            <p id="spieler1Geld">Spieler 1: 0€</p>
+            <p id="spieler2Geld">Spieler 2: 0€</p>
+        </section>
+        
+        <section id="spielerauswahl">
+            <h2>Spieler auswählen</h2>
+            <button id="spieler1Button" class="pulse">Spieler 1</button>
+            <button id="spieler2Button" class="pulse">Spieler 2</button>
+        </section>
+        
+        <section id="wetteinsatz">
+            <h2>Wetteinsatz</h2>
+            <input type="number" id="einsatzBetrag" value="0" min="0">
+        </section>
+        
+        <section id="wettoptionen">
+            <h2>Wettoptionen</h2>
+            <button id="zahlWette">Zahl</button>
+            <button id="geradeWette">Gerade</button>
+            <button id="ungeradeWette">Ungerade</button>
+            <button id="schwarzWette">Schwarz</button>
+            <button id="rotWette">Rot</button>
+        </section>
+        
+        <section id="zahlenwette">
+            <h2>Zahlenwette</h2>
+            <input type="number" id="wettZahl" value="0" min="0" max="36">
+        </section>
+        
+        <section id="aktionen">
+            <button id="wettePlatzieren" class="pulse">Wette platzieren</button>
+            <button id="wettphaseBeenden">Wettphase beenden</button>
+        </section>
+        
+        <section id="spielstandVerwaltung" class="gold-border">
+            <h2>Spielstand verwalten</h2>
+            <button id="speichernDB">In Datenbank speichern</button>
+            <button id="ladenDB">Aus Datenbank laden</button>
+            <button id="speichernDatei">In Datei speichern</button>
+            <button id="ladenDatei">Aus Datei laden</button>
+        </section>
+        
+        <section id="spielzuege">
+            <h2>Spielzüge</h2>
+            <button id="rueckgaengig">Rückgängig</button>
+            <button id="wiederholen">Wiederholen</button>
+        </section>
+    </main>
+    <footer>
+        <p class="shadow-text">Viel Glück und spielen Sie verantwortungsvoll!</p>
+    </footer>
+    
+    <script>
+        document.getElementById('wettePlatzieren').addEventListener('click', function() {
+            var spieler = document.getElementById('spieler1Button').classList.contains('active') ? 'Spieler 1' : 'Spieler 2';
+            var einsatz = document.getElementById('einsatzBetrag').value;
+            var wetttyp = document.querySelector('#wettoptionen button.active').textContent;
+            var wettzahl = document.getElementById('wettZahl').value;
+            
+            var ausgabe = spieler + ' setzt ' + einsatz + '€ auf ' + wetttyp;
+            if (wetttyp === 'Zahl') {
+                ausgabe += ' ' + wettzahl;
+            }
+            
+            document.getElementById('statusText').textContent = ausgabe;
+        });
+    </script>
 }
