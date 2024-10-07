@@ -1,0 +1,20 @@
+{
+    "name": "Roulette Play App Development",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+        "vscode": {
+            "extensions": [
+                "scalameta.metals",
+                "scala-lang.scala",
+                "eamodio.gitlens",
+                "mongodb.mongodb-vscode",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    "forwardPorts": [9000, 27017, 5432, 9092],
+    "postCreateCommand": "sbt update",
+  "remoteUser": "sbtuser"
+}
