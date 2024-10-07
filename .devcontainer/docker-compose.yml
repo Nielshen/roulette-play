@@ -1,0 +1,56 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    ports:
+      - "9000:9000"
+#    depends_on:
+#      - postgres
+#      - mongo
+#      - kafka
+    environment:
+      - "JAVA_OPTS=-Dplay.http.secret.key=abcdefghijk"
+      - "KAFKA_BOOTSTRAP_SERVERS=kafka:9092"
+      - "MONGO_URI=mongodb://mongo:27017/roulette"
+      - "POSTGRES_URL=jdbc:postgresql://postgres:5432/roulette"
+      - "POSTGRES_USER=roulette_user"
+      - "POSTGRES_PASSWORD=roulette_pass"
+
+#   postgres:
+#     image: postgres:latest
+#     environment:
+#       - POSTGRES_DB=roulette
+#       - POSTGRES_USER=roulette_user
+#       - POSTGRES_PASSWORD=roulette_pass
+#     volumes:
+#       - postgres-data:/var/lib/postgresql/data
+#       - ./init:/docker-entrypoint-initdb.d
+
+#   mongo:
+#     image: mongo:latest
+#     volumes:
+#       - mongo-data:/data/db
+
+#   kafka:
+#     image: confluentinc/cp-kafka:latest
+#     ports:
+#       - "9092:9092"
+#     environment:
+#       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+#       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+#       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+#     depends_on:
+#       - zookeeper
+
+#   zookeeper:
+#     image: confluentinc/cp-zookeeper:latest
+#     environment:
+#       - ZOOKEEPER_CLIENT_PORT=2181
+
+# volumes:
+#   postgres-data:
+#   mongo-data:
