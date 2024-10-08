@@ -14,6 +14,8 @@ libraryDependencies ++= Seq(
 )
 unmanagedBase := baseDirectory.value / "lib"
 
+libraryDependencies += filters
+
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.htwg.controllers._"
 

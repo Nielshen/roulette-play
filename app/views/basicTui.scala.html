@@ -1,0 +1,63 @@
+@import roulette.Player
+@(players: Vector[Player])(implicit request: RequestHeader)
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roulette Game</title>
+    <script src="@routes.Assets.versioned("javascripts/roulette.js")" type="text/javascript"></script>
+</head>
+<body>
+    <h1>Welcome to Roulette!</h1>
+    
+    <div id="status">
+        <p id="state-label">Welcome to Roulette!</p>
+        <p id="result">Bet Result</p>
+    </div>
+
+    <div id="player-money">
+        <p id="player-one-money">P1: @players.headOption.map(_.available_money).getOrElse(0)$</p>
+        <p id="player-two-money">P2: @players.lift(1).map(_.available_money).getOrElse(0)$</p>
+    </div>
+
+    <div id="player-selection">
+        <button onclick="selectPlayer(0)">Player 1</button>
+        <button onclick="selectPlayer(1)">Player 2</button>
+    </div>
+
+    <div id="bet-amount">
+        <input type="number" id="bet-amount-input" value="0">
+    </div>
+
+    <div id="bet-options">
+        <button onclick="selectBetType('n')">Number</button>
+        <button onclick="selectBetType('e', 'e')">Even</button>
+        <button onclick="selectBetType('e', 'o')">Odd</button>
+        <button onclick="selectBetType('c', 'b')">Black</button>
+        <button onclick="selectBetType('c', 'r')">Red</button>
+    </div>
+
+    <div id="bet-number">
+        <input type="number" id="bet-number-input" value="0">
+    </div>
+
+    <div id="bet-actions">
+        <button onclick="placeBet()">Place Bet</button>
+        <button onclick="endBettingPhase()">End Betting Phase</button>
+    </div>
+
+    <div id="save-load">
+        <button onclick="saveToDb()">Save to DB</button>
+        <button onclick="loadFromDb()">Load from DB</button>
+        <button onclick="saveToFile()">Save to File</button>
+        <button onclick="loadFromFile()">Load from File</button>
+    </div>
+
+    <div id="undo-redo">
+        <button onclick="undo()">Undo</button>
+        <button onclick="redo()">Redo</button>
+    </div>
+</body>
+</html>

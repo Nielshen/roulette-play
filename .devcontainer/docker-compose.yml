@@ -13,7 +13,7 @@ services:
 #      - mongo
 #      - kafka
     environment:
-      - "JAVA_OPTS=-Dplay.http.secret.key=abcdefghijk"
+      - "JAVA_OPTS=-Dplay.http.secret.key=8e0c2a85e1423923adad2f38947946f4a9df036accd87d061601ac9a9ad16d1b874a51e3e3185c12036978d48f412c88dc75414d6bcbcb6efe45015257faf23da23a6ae41c88949c12ada6dc7047cd5c8dbfb2f82886efbbc75138f6033f87e43b5982863fd2100f0a8f96a1e42363798cca53b593b4e294addf4354e257ac14ccc0f2040bf334a5b79bfddd462ae9bc5826218ff8234a899b1bc08f63c5c361c5bb275246c4ff462b4eb0967bd246e2a61c0d9f0dc481565abba39d20a4a436139ed490accbe5b132924ab31935a72ee527683a7d4be6d21c41d9fbf86a12bc415c8b2d44343ec3d86b61a5694e0cff5e6b372c3104e3ab3c4ccb6046482986"
       - "KAFKA_BOOTSTRAP_SERVERS=kafka:9092"
       - "MONGO_URI=mongodb://mongo:27017/roulette"
       - "POSTGRES_URL=jdbc:postgresql://postgres:5432/roulette"

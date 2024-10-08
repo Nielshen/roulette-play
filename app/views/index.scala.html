@@ -1,4 +1,5 @@
-@()(implicit request: RequestHeader)
+@import roulette.Player
+@(players: Vector[Player])(implicit request: RequestHeader)
 
 @main("Roulette") {
     <div class="container py-5">
@@ -12,29 +13,55 @@
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active text-white" id="game-tab" data-bs-toggle="tab" data-bs-target="#game" type="button" role="tab" aria-selected="true">Spiel</button>
+                                <button class="nav-link active text-white" id="game-tab" data-bs-toggle="tab" data-bs-target="#game" type="button" role="tab" aria-selected="true">Game</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a href="@routes.HomeController.rules()" class="nav-link text-white">Regeln</a>
+                                <a href="@routes.RouletteController.rules()" class="nav-link text-white">Rules</a>
                             </li>
                         </ul>
                     </div>
                     <div class="card-body">
                         <div class="tab-content" id="gameTabContent">
                             <div class="tab-pane fade show active" id="game" role="tabpanel">
-                                <div id="rouletteWheel" class="mb-4"></div>
-                                
-                                <div id="spielstatus" class="alert alert-info shadow-sm">
-                                    <h5 class="alert-heading">Spielstatus</h5>
-                                    <p id="statusText" class="mb-0">Willkommen zu Roulette!</p>
+                                <div id="roulette-wheel" class="text-center mb-4">
+                                    <img src="@routes.Assets.versioned("images/rouletteRad.png")" alt="Roulette Wheel" class="img-fluid" id="wheel-image">
                                 </div>
-                                
-                                <div id="ergebnis" class="alert alert-success mb-4 shadow-sm d-none">
-                                    <h5 class="alert-heading">Ergebnis</h5>
-                                    <p id="ergebnisText" class="mb-0"></p>
+
+                                <div id="status" class="alert alert-info">
+                                    <p id="state-label" class="mb-0">Welcome to Roulette!</p>
                                 </div>
-                                
-                                @game_form()
+
+                                <div id="result" class="alert alert-success d-none">
+                                    <p id="result-text" class="mb-0"></p>
+                                </div>
+
+                                <div id="player-selection" class="mb-3">
+                                    <button onclick="selectPlayer(0)" class="btn btn-primary">Player 1</button>
+                                    <button onclick="selectPlayer(1)" class="btn btn-primary">Player 2</button>
+                                </div>
+
+                                <div id="bet-amount" class="mb-3">
+                                    <label for="bet-amount-input" class="form-label">Bet amount:</label>
+                                    <input type="number" id="bet-amount-input" class="form-control" value="0" min="0">
+                                </div>
+
+                                <div id="bet-options" class="mb-3">
+                                    <button onclick="selectBetType('n')" class="btn btn-secondary">Number</button>
+                                    <button onclick="selectBetType('e', 'e')" class="btn btn-secondary">Even</button>
+                                    <button onclick="selectBetType('e', 'o')" class="btn btn-secondary">Odd</button>
+                                    <button onclick="selectBetType('c', 'b')" class="btn btn-secondary">Black</button>
+                                    <button onclick="selectBetType('c', 'r')" class="btn btn-secondary">Red</button>
+                                </div>
+
+                                <div id="bet-number" class="mb-3">
+                                    <label for="bet-number-input" class="form-label">Number bet:</label>
+                                    <input type="number" id="bet-number-input" class="form-control" value="0" min="0" max="36">
+                                </div>
+
+                                <div id="bet-actions" class="mb-3">
+                                    <button onclick="placeBet()" class="btn btn-success">Place Bet</button>
+                                    <button onclick="endBettingPhase()" class="btn btn-danger">End Betting Phase</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -42,13 +69,13 @@
             </div>
             
             <div class="col-lg-4">
-                @player_info()
+                @player_info(players)
                 @game_management()
             </div>
         </div>
         
         <footer class="text-center mt-5">
-            <p class="shadow-text glow">Viel Glück und spielen Sie verantwortungsvoll!</p>
+            <p class="shadow-text glow">Good luck!</p>
         </footer>
     </div>
 }
