@@ -1,9 +1,10 @@
-@()
+@import roulette.Player
+@(players: Vector[Player])
 
 <div class="card shadow mb-4">
-    <div class="card-header bg-success text-white">Kontostand</div>
+    <div class="card-header bg-success text-white">Balance</div>
     <div class="card-body">
-        <p id="spieler1Geld" class="mb-1 fs-5"><i class="bi bi-person-fill me-2"></i>Spieler 1: 1000€</p>
-        <p id="spieler2Geld" class="mb-0 fs-5"><i class="bi bi-person-fill me-2"></i>Spieler 2: 1000€</p>
+        <p id="player-one-money" class="mb-1 fs-5"><i class="bi bi-person-fill me-2"></i>Player 1: @players.headOption.map(_.available_money).getOrElse(0)$</p>
+        <p id="player-two-money" class="mb-0 fs-5"><i class="bi bi-person-fill me-2"></i>Player 2: @players.lift(1).map(_.available_money).getOrElse(0)$</p>
     </div>
 </div>

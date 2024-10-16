@@ -1,23 +1,23 @@
 @()
 
 <div class="card shadow mb-4">
-    <div class="card-header bg-info text-white">Spielstand verwalten</div>
+    <div class="card-header bg-info text-white">Manage Game State</div>
     <div class="card-body">
         <div class="d-grid gap-2">
-            <button id="speichernDB" class="btn btn-outline-primary"><i class="bi bi-save me-2"></i>In Datenbank speichern</button>
-            <button id="ladenDB" class="btn btn-outline-secondary"><i class="bi bi-cloud-download me-2"></i>Aus Datenbank laden</button>
-            <button id="speichernDatei" class="btn btn-outline-primary"><i class="bi bi-file-earmark-arrow-down me-2"></i>In Datei speichern</button>
-            <button id="ladenDatei" class="btn btn-outline-secondary"><i class="bi bi-file-earmark-arrow-up me-2"></i>Aus Datei laden</button>
+            <button id="saveDB" class="btn btn-outline-primary"><i class="bi bi-save me-2"></i>Save to Database</button>
+            <button id="loadDB" class="btn btn-outline-secondary"><i class="bi bi-cloud-download me-2"></i>Load from Database</button>
+            <button id="saveFile" class="btn btn-outline-primary"><i class="bi bi-file-earmark-arrow-down me-2"></i>Save to File</button>
+            <button id="loadFile" class="btn btn-outline-secondary"><i class="bi bi-file-earmark-arrow-up me-2"></i>Load from File</button>
         </div>
     </div>
 </div>
 
 <div class="card shadow">
-    <div class="card-header bg-warning text-dark">Spielzüge</div>
+    <div class="card-header bg-warning text-dark">Game Moves</div>
     <div class="card-body">
         <div class="d-grid gap-2">
-            <button id="rueckgaengig" class="btn btn-outline-warning"><i class="bi bi-arrow-counterclockwise me-2"></i>Rückgängig</button>
-            <button id="wiederholen" class="btn btn-outline-info"><i class="bi bi-arrow-clockwise me-2"></i>Wiederholen</button>
+            <button id="undo" class="btn btn-outline-warning"><i class="bi bi-arrow-counterclockwise me-2"></i>Undo</button>
+            <button id="redo" class="btn btn-outline-info"><i class="bi bi-arrow-clockwise me-2"></i>Redo</button>
         </div>
     </div>
 </div>
