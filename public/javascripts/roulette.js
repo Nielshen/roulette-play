@@ -63,7 +63,7 @@ function endBettingPhase() {
             document.getElementById('result-text').innerText = winningNumber;
             document.getElementById('state-label').innerText = 'Round ended!';
             updatePlayerMoney(data.players);
-        }, 5000); // Warte 5 Sekunden, bis das Rad aufhört sich zu drehen
+        }, 5000); // Warte 5 Sekunden bis das Rad aufhört sich zu drehen
     })
     .catch((error) => {
         console.error('Error:', error);
