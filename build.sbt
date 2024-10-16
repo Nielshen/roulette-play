@@ -10,11 +10,13 @@ scalaVersion := "3.3.3"
 libraryDependencies ++= Seq(
   guice,
   "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.1" % Test,
-  jdbc
+  jdbc,
+  "org.apache.pekko" %% "pekko-actor" % "1.0.1",
+  "org.apache.pekko" %% "pekko-stream" % "1.0.1",
+  filters
 )
 unmanagedBase := baseDirectory.value / "lib"
 
-libraryDependencies += filters
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.htwg.controllers._"
